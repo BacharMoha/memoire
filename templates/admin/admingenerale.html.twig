@@ -92,7 +92,7 @@
                         <li><a class="dropdown-item" href="#">Nom: Bachar</a></li>
                         <li><a class="dropdown-item" href="#">Email: bachar@example.com</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-danger" href="{{ path('app_admingenerale') }}">Déconnexion</a></li>
+                        <li><a class="dropdown-item text-danger" href="#">Déconnexion</a></li>
                     </ul>
                 </li>
             </ul>
@@ -113,15 +113,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
-            <div class="card dashboard-card" style="border-radius: 20px;">
-                <div class="card-body" >
-                    <h5 class="card-title">Gérer les Pharmacies</h5>
-                    <p class="card-text">Voir, modifier, bloquer ou supprimer les informations des pharmacies.</p>
-                    <a href="{{ path('app_gerepharmacie') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Gérer Pharmacies</a>
-                </div>
-            </div>
-        </div>
+              
         <div class="col-md-4">
             <div class="card dashboard-card" style="border-radius: 20px;">
                 <div class="card-body">
@@ -131,37 +123,35 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+     <div class="col-md-4">
             <div class="card dashboard-card" style="border-radius: 20px;">
-                <div class="card-body">
-                    <h5 class="card-title">Modifier Comptes Pharmaciens</h5>
-                    <p class="card-text">Modifier les informations d'un compte pharmacien.</p>
-                    <a href="{{ path('app_modificationinfopharma') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Modifier Compte</a>
+                <div class="card-body" >
+                    <h5 class="card-title">Gérer les Pharmacies</h5>
+                    <p class="card-text">Voir, modifier, bloquer ou supprimer les informations des pharmacies.</p>
+                    <a href="{{ path('app_gerepharmacie') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Gérer Pharmacies</a>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
+         <div class="col-md-4">
             <div class="card dashboard-card" style="border-radius: 20px;">
                 <div class="card-body">
-                    <h5 class="card-title">Créer Planning de Garde</h5>
-                    <p class="card-text">Créer manuellement le planning des pharmacies de garde.</p>
-                    <a href="#" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Créer Planning</a>
+                    <h5 class="card-title">Créer Comptes d'ordre de pharmacie</h5>
+                    <p class="card-text">Créer un nouveau compte pour l'ordre de pharmacie.</p>
+                    <a href="{{ path('app_inscripordre') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Créer Compte</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+          <div class="col-md-4">
             <div class="card dashboard-card" style="border-radius: 20px;">
-                <div class="card-body">
-                    <h5 class="card-title">Modifier Planning de Garde</h5>
-                    <p class="card-text">Modifier le planning existant des pharmacies de garde.</p>
-                    <a href="#" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Modifier Planning</a>
+                <div class="card-body" >
+                    <h5 class="card-title">Gérer l'ordre de pharmacie</h5>
+                    <p class="card-text">Voir, modifier,supprimer les informations d'ordre de pharmacie</p>
+                    <a href="{{ path('app_gererordre') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Gérer l'ordre</a>
                 </div>
             </div>
         </div>
-                <div class="col-md-4">
+       
+          <div class="col-md-4">
             <div class="card dashboard-card" style="border-radius: 20px; ">
                 <div class="card-body">
                     <h5 class="card-title">Voir et Gérer Planning de Garde</h5>
@@ -170,19 +160,21 @@
                 </div>
             </div>
         </div>
-    </div>
-
-        <div class="col-md-4">
-            <div class="card dashboard-card" style="border-radius: 20px; margin-left: 32%; position: absolute;">
+   <div class="col-md-4">
+            <div class="card dashboard-card" style="border-radius: 20px; position: absolute;">
                 <div class="card-body">
                     <h5 class="card-title">Créer Notification</h5>
-                    <p class="card-text">Envoyer des notifications aux utilisateurs.</p>
-                    <a href="#" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Créer Notification</a> 
+                    <p class="card-text">Envoyer des notifications aux utilisateurs.</p><br>
+                    <a href="{{ path('app_notifications') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Créer Notification</a>
                     <a href="{{ path('app_gerernotifications') }}" class="btn btn-primary" style="border-radius: 20px; background: #2f84df;">Gérer Notification</a>
                 </div>
             </div>
         </div>
     </div>
+      
+
+
+     
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>

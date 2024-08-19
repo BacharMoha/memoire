@@ -154,19 +154,25 @@
         <div class="container">
             <img src="{{ asset('images/pharmacy-icon.jpg') }}" alt="Logo" class="logo">
             <h2>Locapharma</h2>
-            <p class="subtitle">Créer un nouveau compte pharmacien</p>
+            <p class="subtitle">Créer un nouveau pour l'ordre de pharmacie</p>
             <form method="post" action="#">
                 <div class="input-container">
                     <span class="input-icon">
                         <i class="fas fa-user"></i>
                     </span>
-                    <input type="text" name="name" placeholder="Nom de la pharmacie" required>
+                    <input type="text" name="name" placeholder="Nom" required>
                 </div>
                 <div class="input-container">
                     <span class="input-icon">
                         <i class="fas fa-envelope"></i>
                     </span>
-                    <input type="email" name="email" placeholder="Email de la pharmacie" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                   <div class="input-container">
+                    <span class="input-icon">
+                        <i class="fas fa-phone"></i>
+                    </span>
+                    <input type="tel" name="phone" placeholder="Numéro de Téléphone" required>
                 </div>
                 <div class="input-container">
                     <span class="input-icon">
@@ -180,25 +186,9 @@
                     </span>
                     <input type="password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
                 </div>
-                <div class="input-container">
-                    <span class="input-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </span>
-                    <input type="text" name="address" placeholder="Adresse" required>
-                </div>
-                <div class="input-container">
-                    <span class="input-icon">
-                        <i class="fas fa-phone"></i>
-                    </span>
-                    <input type="tel" name="phone" placeholder="Numéro de Téléphone" required>
-                </div>
-                <div class="input-container">
-                <label style="color: rgb(169, 169, 169); font-size: 14px;">Déscription</label> 
-                    <span class="input-icon">
-                     
-                    </span>
-                     <textarea class="form-control" id="medicamentDescription" name="description" rows="4" required></textarea>
-                </div>
+                
+             
+             
                 <button type="submit" class="btn">Créer le compte</button>
             </form>
         </div>

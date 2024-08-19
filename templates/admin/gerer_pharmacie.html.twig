@@ -51,7 +51,7 @@
                         <li><a class="dropdown-item" href="#">Nom: Bachar</a></li>
                         <li><a class="dropdown-item" href="#">Email: bachar@example.com</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-danger" href="{{ path('app_admingenerale') }}">Déconnexion</a></li>
+                        <li><a class="dropdown-item text-danger" href="#">Déconnexion</a></li>
                     </ul>
                 </li>
             </ul>
@@ -78,7 +78,7 @@
                 <td>Adresse de la pharmacie</td>
                 <td>email@pharmacie.com</td>
                 <td>
-                    <a href="#" class="btn btn-edit" style="border-radius: 20px;">Modifier</a>
+                    <a href="{{ path('app_modificationinfopharma') }}" class="btn btn-edit" style="border-radius: 20px;">Modifier</a>
                     <a href="#" class="btn btn-delete" style="border-radius: 20px;">Supprimer</a>
                 </td>
             </tr>

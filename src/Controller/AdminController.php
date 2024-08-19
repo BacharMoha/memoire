@@ -143,5 +143,29 @@ class AdminController extends AbstractController
         ]);
     }
  
+    #[Route('/admin/inscriptordreph', name: 'app_inscripordre')]
+    public function inscriptordreph(): Response
+    {
+        return $this->render('admin/inscription_ordrepharamacie.html.twig', [
+            'controller_name' => 'AdminController',
+        ]);
+    }
+ 
+    #[Route('/admin/gererordr', name: 'app_gererordre')]
+    public function gererordr(): Response
+    {
+        return $this->render('admin/gerer_ordreph.html.twig', [
+            'controller_name' => 'AdminController',
+        ]);
+    }
+ 
+    #[Route('/admin/modifordr', name: 'app_modifierordre')]
+    public function modifordr(): Response
+    {
+        return $this->render('admin/modifierordreph.html.twig', [
+            'controller_name' => 'AdminController',
+        ]);
+    }
+ 
     
 }
