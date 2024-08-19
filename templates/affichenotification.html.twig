@@ -1,0 +1,63 @@
+{% block title %}{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .notification-container {
+            margin-top: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 30px;
+            border-radius: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .notification-title {
+            font-family: "Luminari", "Comic Sans MS", cursive, sans-serif;
+            font-size: 1.5rem;
+            color: #0839CF;
+            margin-bottom: 10px;
+        }
+
+        .notification-date {
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        .notification-body {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333333;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            border-radius: 20px;
+            background-color: #0839CF;
+            color: #ffffff;
+        }
+
+        .btn:hover {
+            background-color: #052a94;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="notification-container">
+        <h3 class="notification-title">Changement du programme de garde</h3>
+        <p class="notification-date">Publié le 11 Août 2024</p>
+        <p class="notification-body">La pharmacie de la Corniche en face de l’hôpital Elmarouf 
+        est la pharmacie de garde ce dimanche 11 Août.
+        Tél: 7322479</p>
+        <a href="{{ path('app_index') }}" class="btn btn-primary mt-4">Quitter</a>
+    </div>
+</div>
+{% endblock %}

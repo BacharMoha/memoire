@@ -1,0 +1,28 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+recherche_medicament:
+    path: /recherche-medicament
+    controller: App\Controller\MedicamentController::rechercheMedicament
+
+pharmacie_garde:
+    path: /pharmacie-garde
+    controller: App\Controller\PharmaciegardeController::pharmacieGarde
+
+info_pharmacie:
+    path: /info-pharmacie
+    controller: App\Controller\PharmainfoController::infoPharmacie
+
+inscription:
+    path: /inscrip-tion
+    controller: App\Controller\InscriptionController::inscriptions
+
+login:
+    path: /log-in
+    controller: App\Controller\LoginController::log_in
+
+
+

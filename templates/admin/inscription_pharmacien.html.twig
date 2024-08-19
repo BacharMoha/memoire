@@ -1,0 +1,211 @@
+{# templates/admin/creer_compte_pharmacien.html.twig #}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="display: block; position: absolute;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Profil
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="border-radius: 20px;">
+                        <li><a class="dropdown-item" href="#">Nom: Bachar</a></li>
+                        <li><a class="dropdown-item" href="#">Email: bachar@example.com</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="{{ path('app_admingenerale') }}">Déconnexion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+
+    <header>
+        <style> 
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .container {
+                text-align: center;
+                width: 90%;
+                max-width: 400px;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .logo {
+                width: 80px;
+                margin-bottom: 15px;
+            }
+
+            h2 {
+                color: #0839CF;
+                font-size: 20px;
+                margin-bottom: 10px;
+                font-family: "Great Vibes", cursive;
+            }
+
+            .subtitle {
+                color: #999999;
+                font-size: 14px;
+                margin-bottom: 15px;
+                font-family: "Blippo", fantasy;
+            }
+
+            .input-container {
+                position: relative;
+                margin-bottom: 15px;
+            }
+
+            .input-container input {
+                width: 100%;
+                padding: 10px;
+                padding-left: 35px;
+                border: 2px solid #0839CF;
+                border-radius: 20px;
+                font-size: 14px;
+            }
+
+            .input-icon {
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 14px;
+                color: #0839CF;
+            }
+
+            .select-container {
+                margin-bottom: 15px;
+            }
+
+            .select-container select {
+                width: 100%;
+                padding: 10px;
+                border: 2px solid #0839CF;
+                border-radius: 20px;
+                font-size: 14px;
+                color: #333;
+                background-color: #fff;
+                appearance: none;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 10px;
+                background-color: #0839CF;
+                color: #ffffff;
+                border: none;
+                border-radius: 20px;
+                font-size: 14px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+
+            .btn:hover {
+                background-color: #0056b3;
+            }
+
+            .login-link {
+                margin-top: 15px;
+                color: #666666;
+            }
+
+            .login-link a {
+                color: #0839CF;
+                text-decoration: none;
+            }
+
+            .login-link a:hover {
+                text-decoration: underline;
+            }
+
+            @media (max-width: 480px) {
+                .input-container input {
+                    padding-left: 30px;
+                }
+            }
+        </style>
+
+        <div class="container">
+            <img src="{{ asset('images/pharmacy-icon.jpg') }}" alt="Logo" class="logo">
+            <h2>Locapharma</h2>
+            <p class="subtitle">Créer un nouveau compte pharmacien/ordre de pharmacie</p>
+            <form method="post" action="#">
+                <div class="input-container">
+                    <span class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <input type="text" name="name" placeholder="Nom" required>
+                </div>
+                <div class="input-container">
+                    <span class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-container">
+                    <span class="input-icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="password" name="password" placeholder="Mot de passe" required>
+                </div>
+                <div class="input-container">
+                    <span class="input-icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
+                </div>
+                <div class="input-container">
+                    <span class="input-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </span>
+                    <input type="text" name="address" placeholder="Adresse" required>
+                </div>
+                <div class="input-container">
+                    <span class="input-icon">
+                        <i class="fas fa-phone"></i>
+                    </span>
+                    <input type="tel" name="phone" placeholder="Numéro de Téléphone" required>
+                </div>
+                <div class="select-container">
+                    <select name="role" required>
+                        <option value="" disabled selected>Sélectionner le rôle</option>
+                        <option value="pharmacien">Pharmacien</option>
+                        <option value="ordre_pharmacie">Ordre des Pharmaciens</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Créer le compte</button>
+            </form>
+        </div>
+    </header>
+    <a href="{{ path('app_admingenerale') }}" class="btn btn-secondary w-100 mt-3" style="border-radius: 20px;">Retour au Tableau de Bord</a>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+{% endblock %}
