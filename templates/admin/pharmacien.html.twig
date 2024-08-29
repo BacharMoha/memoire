@@ -2,140 +2,152 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title %}Tableau de Bord - Locapharma{% endblock %}
+{% block title %}Tableau de Bord - Locapharma
+{% endblock %}
 
 {% block stylesheets %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa; /* Couleur de fond par défaut */
-        }
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-color: #f8f9fa; /* Couleur de fond par défaut */
+		}
 
-        .background-overlay::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("{{ asset('images/pharmacy-icon.jpg') }}"); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            opacity: 0.3; /* Ajustez cette valeur pour changer l'opacité */
-            filter: blur(6px); /* Applique un effet de flou */
-            z-index: -2;
-        }
+		.background-overlay::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url("{{ asset('images/pharmacy-icon.jpg') }}");
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			opacity: 0.3; /* Ajustez cette valeur pour changer l'opacité */
+			filter: blur(6px); /* Applique un effet de flou */
+			z-index: -2;
+		}
 
-        .background-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
+		.background-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
 
-        .dashboard-container {
-            margin-top: 50px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
+		.dashboard-container {
+			margin-top: 50px;
+			max-width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			position: relative;
+			z-index: 1;
+		}
 
-        .dashboard-card {
-            margin: 20px 0;
-        }
+		.dashboard-card {
+			margin: 20px 0;
+		}
 
-        .btn {
-            margin: 10px;
-        }
-        .nombre-medic{
-            font-family: "Comic Sans MS", cursive, sans-serif;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.532);
-            font-size: 40px;
-        }
-        .mb-4{
-            font-family: "Chalkduster", fantasy;
-        }
-    </style>
+		.btn {
+			margin: 10px;
+		}
+		.nombre-medic {
+			font-family: "Comic Sans MS", cursive, sans-serif;
+			text-shadow: 0 0 10px rgba(0, 0, 0, 0.532);
+			font-size: 40px;
+		}
+		.mb-4 {
+			font-family: "Chalkduster", fantasy;
+		}
+	</style>
 {% endblock %}
 
 {% block body %}
-<div class="background-overlay"></div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Profil
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="border-radius: 20px;">
-                        <li><a class="dropdown-item" href="#">Nom: Bachar</a></li>
-                        <li><a class="dropdown-item" href="#">Email: bachar@example.com</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-danger" href="#">Déconnexion</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="container dashboard-container">
-    <h1 class="mb-4">Tableau de Bord Pharmacien</h1>
+	<div class="background-overlay"></div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Profil
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="border-radius: 20px;">
+							<li>
+								<a class="dropdown-item" href="#">
+									Bachar</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#">bachar@example.com</a>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li>
+								<a class="dropdown-item text-danger" href="#">Déconnexion</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container dashboard-container">
+		<h1 class="mb-4">Tableau de Bord Pharmacien</h1>
 
-     <div class="row">
-            <div class="card dashboard-card" style="border-radius: 30px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.532); background: #f0f0f0;">
-                <div class="card-body" >
-                    <h5 class="card-title">Total Médicaments</h5>
-                    <b><strong><h2 class="nombre-medic">__ 254 __</h2></strong></b>
-                  
-                </div>
-            </div>
-        </div>       
-    
-    
-    <div class="row">
-        <div class="col-md-4" >
-            <div class="card dashboard-card" style="border-radius: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.532);">
-                <div class="card-body">
-                    <h5 class="card-title">Ajouter un Médicament</h5>
-                    <p class="card-text">Accédez à la page pour ajouter de nouveaux médicaments.</p>
-                    <a href="{{ path('app_addmedicament') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Ajouter Médicament</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card dashboard-card" style="border-radius: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.532);">
-                <div class="card-body">
-                    <h5 class="card-title">Gestion des Horaires</h5>
-                    <p class="card-text">Accédez à la page pour gérer les horaires d'ouverture et de fermeture.</p>
-                    <a href="{{ path('app_addheur') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Gérer Horaires</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card dashboard-card" style="border-radius: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.532);">
-                <div class="card-body">
-                    <h5 class="card-title">Modifier Médicament</h5>
-                    <p class="card-text">Accédez à la page pour modifier les informations sur les médicaments.</p>
-                    <a href="{{ path('app_listemedic') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Modifier Médicament</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-</div>
+		<div class="row">
+			<div class="card dashboard-card" style="border-radius: 30px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.532); background: #f0f0f0;">
+				<div class="card-body">
+					<h5 class="card-title">Total Médicaments</h5>
+					<b>
+						<strong>
+							<h2 class="nombre-medic">__ 254 __</h2>
+						</strong>
+					</b>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card dashboard-card" style="border-radius: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.532);">
+					<div class="card-body">
+						<h5 class="card-title">Ajouter un Médicament</h5>
+						<p class="card-text">Accédez à la page pour ajouter de nouveaux médicaments.</p>
+						<a href="{{ path('app_addmedicament') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Ajouter Médicament</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card dashboard-card" style="border-radius: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.532);">
+					<div class="card-body">
+						<h5 class="card-title">Gestion des Horaires</h5>
+						<p class="card-text">Accédez à la page pour gérer les horaires d'ouverture et de fermeture.</p>
+						<a href="{{ path('app_addheur') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Gérer Horaires</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card dashboard-card" style="border-radius: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.532);">
+					<div class="card-body">
+						<h5 class="card-title">Modifier Médicament</h5>
+						<p class="card-text">Accédez à la page pour modifier les informations sur les médicaments.</p>
+						<a href="{{ path('app_listemedic') }}" class="btn btn-primary" style="border-radius: 20px; background: #0839CF;">Modifier Médicament</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+	</div>
 {% endblock %}

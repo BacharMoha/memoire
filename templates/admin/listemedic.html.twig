@@ -1,101 +1,148 @@
 {# templates/admin/list_medicaments.html.twig #}
 
-
-
-{% block title %}{% endblock %}
-
 {% block stylesheets %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .container {
-            margin-top: 50px;
-        }
-        .btn-edit {
-            background-color: #007bff;
-            color: #fff;
-        }
-        .btn-edit:hover {
-            background-color: #0056b3;
-        }
-        .btn-delete {
-            background-color: #dc3545;
-            color: #fff;
-        }
-        .btn-delete:hover {
-            background-color: #c82333;
-        }
-          h1{
-            font-family: "Great Vibes", cursive;
-            color: #0839CF;
-        }
-        tbody{
-             background-color:rgb(181, 247, 204);;
-             border-radius: 20px;
-             box-shadow: 0 0 10px rgba(0, 0, 0, 0.532);
-        }
-    </style>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		.container {
+			margin-top: 50px;
+		}
+		.btn-edit {
+			background-color: #007bff;
+			color: #fff;
+		}
+		.btn-edit:hover {
+			background-color: #0056b3;
+		}
+		.btn-delete {
+			background-color: #dc3545;
+			color: #fff;
+		}
+		.btn-delete:hover {
+			background-color: #c82333;
+		}
+		h1 {
+			font-family: "Great Vibes", cursive;
+			color: #0839CF;
+		}
+		tbody {
+			background-color: rgb(181, 247, 204);
+			border-radius: 20px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.532);
+		}
+		.search-bar {
+			margin-bottom: 20px;
+			position: relative;
+		}
+		.search-bar input {
+			padding-left: 40px;
+			border-radius: 20px;
+		}
+		.search-bar .search-icon {
+			position: absolute;
+			top: 50%;
+			left: 10px;
+			transform: translateY(-50%);
+			font-size: 20px;
+			color: #0839CF;
+		}
+	</style>
 {% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1 class="mb-4">Liste des Médicaments</h1>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {# {% for medicament in medicaments %} #}
-            <tr>
-                <td>#</td>
-                <td>Paracetamole</td>
-                <td>Le paracétamol est un antalgique (calme la douleur) et un antipyrétique (fait baisser la fièvre).
-</td>
-                <td>
-                    <a href="{{ path('app_modifmedic') }}" class="btn btn-edit" style="border-radius: 20px;">Modifier</a>
-                    <a href="#" class="btn btn-delete" style="border-radius: 20px;">Supprimer</a>
-                    
-                </td>
-            </tr>
-         
-        </tbody>
-          
-        <tbody>
-            {# {% for medicament in medicaments %} #}
-            <tr>
-                <td>#</td>
-                <td>Paracetamole</td>
-                <td>Le paracétamol est un antalgique (calme la douleur) et un antipyrétique (fait baisser la fièvre).
-</td>
-                <td>
-                    <a href="{{ path('app_modifmedic') }}" class="btn btn-edit" style="border-radius: 20px;">Modifier</a>
-                    <a href="#" class="btn btn-delete" style="border-radius: 20px;">Supprimer</a>
-                    
-                </td>
-            </tr>
-         
-        </tbody>
-           <tbody>
-            {# {% for medicament in medicaments %} #}
-            <tr>
-                <td>#</td>
-                <td>Paracetamole</td>
-                <td>Le paracétamol est un antalgique (calme la douleur) et un antipyrétique (fait baisser la fièvre).
-</td>
-                <td>
-                    <a href="{{ path('app_modifmedic') }}" class="btn btn-edit" style="border-radius: 20px;">Modifier</a>
-                    <a href="#" class="btn btn-delete" style="border-radius: 20px;">Supprimer</a>
-                  
-                </td>
-            </tr>
-         
-        </tbody>
-        
-    </table>
-     <a href="{{ path('app_pharmacien') }}" class="btn btn-secondary w-100 mt-3" style="border-radius: 20px;">Retour au Tableau de Bord</a>
-{% endblock %}
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Profil
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="border-radius: 20px;">
+							<li>
+								<a class="dropdown-item" href="#">Bachar</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#">bachar@example.com</a>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li>
+								<a class="dropdown-item text-danger" href="{{ path('app_admingenerale') }}">Déconnexion</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<h1 class="mb-4">Liste des Médicaments</h1>
 
+		<div class="search-bar">
+			<input type="text" class="form-control" id="searchMedicaments" placeholder="Rechercher un médicament">
+			<span class="search-icon">
+				<i class="fas fa-search"></i>
+			</span>
+		</div>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Nom</th>
+					<th>Description</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody
+				id="medicamentsList">
+				{# {% for medicament in medicaments %} #}
+				<tr>
+					<td>#</td>
+					<td>Paracétamol</td>
+					<td>Le paracétamol est un antalgique (calme la douleur) et un antipyrétique (fait baisser la fièvre).</td>
+					<td>
+						<a href="{{ path('app_modifmedic') }}" class="btn btn-edit" style="border-radius: 20px;">Modifier</a>
+						<a href="#" class="btn btn-delete" style="border-radius: 20px;">Supprimer</a>
+					</td>
+				</tr>
+				<tr>
+					<td>#</td>
+					<td>Aspirine</td>
+					<td>L'aspirine est un anti-inflammatoire non stéroïdien (AINS) utilisé pour soulager la douleur et réduire la fièvre.</td>
+					<td>
+						<a href="{{ path('app_modifmedic') }}" class="btn btn-edit" style="border-radius: 20px;">Modifier</a>
+						<a href="#" class="btn btn-delete" style="border-radius: 20px;">Supprimer</a>
+					</td>
+				</tr>
+				{# {% endfor %} #}
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_pharmacien') }}" class="btn btn-secondary w-100 mt-3" style="border-radius: 20px;">Retour au Tableau de Bord</a>
+
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+		<script>
+			document.getElementById('searchMedicaments').addEventListener('keyup', function () {
+let filter = this.value.toLowerCase();
+let rows = document.querySelectorAll('#medicamentsList tr');
+
+rows.forEach(row => {
+let text = row.textContent.toLowerCase();
+
+if (text.includes(filter)) {
+row.style.display = '';
+} else {
+row.style.display = 'none';
+}
+});
+});
+		</script>
+	</div>
+{% endblock %}

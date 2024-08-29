@@ -167,5 +167,13 @@ class AdminController extends AbstractController
         ]);
     }
  
+    #[Route('/admin/modifnoitif', name: 'app_modifiernotif')]
+    public function modifnoitif(): Response
+    {
+        return $this->render('admin/modification_notification.html.twig', [
+            'controller_name' => 'AdminController',
+        ]);
+    }
+ 
     
 }

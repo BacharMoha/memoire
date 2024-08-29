@@ -1,352 +1,428 @@
-{# templates/home/index.html.twig #}
-
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil - LocaPharam{% endblock %}
+{% block title %}Accueil-Locapharma
+{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-xxx" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-xxx" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
+	<div class="container">
 
- <style> 
-     body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffff;
+		<header class="row align-items-center">
+
+			<style>
+
+
+				body {
+					min-height: 100vh;
+					display: flex;
+					flex-direction: column;
+				}
+
+				main {
+					flex: 1;
+				}
+
+				header {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					padding: 10px 0;
+				}
+
+				h1 {
+					color: #0056b3;
+					font-size: 30px;
+				}
+
+				.notifications img {
+					width: 24px;
+					height: 24px;
+				}
+
+				.pharmacy-list {
+					list-style-type: none;
+					padding: 0;
+					margin: 20px 0;
+				}
+
+				.pharmacy-item {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					background-color: #fff;
+					padding: 10px 20px;
+					border-radius: 25px;
+					margin-bottom: 10px;
+					box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+					position: relative;
+				}
+
+				.pharmacy-item img {
+					width: 70px;
+					height: 70px;
+				}
+
+
+				.nmPh {
+					font-weight: 900;
+					font-size: 23px;
+					flex-grow: 1;
+					top: 18px;
+					font-family: "Blippo", fantasy;
+					color: #0056b3;
+				}
+
+				.nmMdc {
+					display: block;
+
+					margin-top: 10%;
+					font-size: 17px;
+					color: black;
+					font-family: "Comic Sans MS", cursive, sans-serif;
+
+					padding: 2%;
+					border-radius: 30px;
+				}
+
+				.bottom-nav {
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					padding: 10px 0;
+					background-color: #fff;
+					border-top: 1px solid #ddd;
+					position: fixed;
+					bottom: 0;
+					width: 100%;
+					height: 60px;
+					box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+				}
+
+				.bottom-nav a {
+					color: #0056b3;
+					text-decoration: none;
+					font-size: 14px;
+					text-align: center;
+				}
+
+				.nav-item {
+					text-align: center;
+					flex: 1;
+				}
+
+				.nav-item svg {
+					display: block;
+					margin: 0 auto 5px;
+					text-align: center;
+				}
+
+				.nav-item span {
+					display: block;
+					font-size: 12px;
+					color: #333;
+				}
+
+				#btn-insponible {
+					background: red;
+					font-size: 14px;
+				}
+
+				main {
+					margin-top: 5%;
+				}
+
+				.search-bar {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				.search-bar input {
+					padding: 10px;
+					border-radius: 25px;
+					border: 1px solid #0839CF;
+					width: 100%;
+					box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+				}
+
+				.search-btn {
+					background-color: transparent;
+					border: none;
+					margin-left: -35px;
+				}
+				@media(max-width: 992px) {
+					header {
+						flex-direction: column;
+					}
+
+					.search-bar input {
+						width: 100%;
+					}
+
+					#locfr {
+						margin-left: -100%;
+					}
+
+					.notifications {
+						margin-top: -10%;
+						position: absolute;
+						margin-left: 55%;
+					}
+				}
+
+				@media(max-width: 768px) {
+					.pharmacy-item {
+						flex-direction: column;
+						align-items: flex-start;
+					}
+
+					.nmPh,
+					.nmMdc {
+						font-size: 16px;
+					}
+
+					.btn-disponible {
+						width: 100%;
+						text-align: center;
+						margin-top: 10px;
+					}
+				}
+
+				@media(max-width: 576px) {
+					.search-bar input {
+						width: 100%;
+					}
+
+					.bottom-nav {
+						flex-direction: column;
+						height: auto;
+					}
+
+					.nav-item {
+						margin-bottom: 10px;
+					}
+
+					.nav-item span {
+						font-size: 10px;
+					}
+
+					.notifications {
+						margin-top: 10px;
+					}
+				}
+				@media(max-width:1492px) {
+					footer {
+						margin-left: -13%;
+						position: relative;
+
+					}
+				}
+				@media(max-width:1448px) {
+					footer {
+						margin-left: -13%;
+						position: relative;
+
+					}
+				}
+				footer {
+					position: relative; /* ou fixed si vous voulez qu'il reste en bas */
+					width: 100%;
+					margin: 0; /* Supprimez les marges négatives */
+					padding: 10px 0;
+					background-color: #fff;
+					text-align: center;
+
+					bottom: 0; /* Garder le footer en bas */
+				}
+
+				@media(max-width: 992px) {
+					footer {
+						margin-left: 0;
+						padding: 10px;
+						text-align: center;
+					}
+				}
+
+				.description {
+					margin-left: 11%; /* Ajuste la valeur selon la quantité de décalage que tu souhaites */
+					color: #6c757d; /* Conserve la couleur du texte comme texte-muted */
+					font-size: 14px; /* Ajuste la taille de la police si nécessaire */
+					line-height: 1.5; /* Ajuste l'espacement entre les lignes pour une meilleure lisibilité */
+					margin-top: -4%;
+
+				}
+				.btn-primary {
+					border-radius: 35%;
+					transition: 2s;
+				}
+				.card-title {
+					font-family: 'Kaushan Script', cursive;
+					-webkit-text-stroke: 1px #0839CF;
+					color: #0839CF;
+				}
+			</style>
+			<nav style="margin-top: -12%; ">
+				<div class="container">
+					<header class="row align-items-center" style="margin-top: 10%;)">
+						<div class="col-md-4 text-center text-md-start">
+							<a href="{{ path('app_index') }}">
+								<img src="{{ asset('images/LocaPharma_color.png') }}" id="locfr" width="206" height="100" alt="Pharmacy Icon">
+							</a>
+						</div>
+						<div class="col-md-4 text-center my-2 my-md-0">
+&							<div class="search-bar">
+								<input type="text" placeholder="Rechercher une pharmacie" id="searchPharmacie" class="form-control"/>
+								<button class="search-btn btn btn-link p-0">
+									<i class="bi bi-search"></i>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewbox="0 0 16 16">
+										<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+									</svg>
+								</button>
+							</div>
+						</div>
+						<div class="col-md-4 text-center text-md-end">
+							<a href="{{ path('app_notification') }}">
+								<div class="notifications">
+									<i class="bi bi-bell"></i>
+
+									<svg style="color: #0839CF;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bell-fill" viewbox="0 0 16 16">
+										<path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+									</svg>
+
+								</div>
+							</a>
+						</div>
+					</header>
+					<main class="container mt-4" id="pharamacieList">
+						<ul class="pharmacy-list list-unstyled" id="pharamacieList">
+							<li class="pharmacy-item d-flex flex-column align-items-start mb-4">
+								<img src="{{ asset('images/pp.jpg') }}" alt="Pharmacy Icon" style="width: 100px; height: 100px;">
+								<span class="nmPh font-weight-bold">Pharmacie Yassine</span>
+								<p class="description">Votre pharmacie de confiance avec une large gamme de produits.
+																											            Votre pharmacie de confiance avec une large gamme de produits.
+																											            Votre pharmacie de confiance avec une large gamme de produits.
+																											            Votre pharmacie de confiance avec une large gamme de produits.</p>
+								<a class="aller btn btn-outline-primary mt-2" href="{{ path('info_pharmacie') }}" style="border-radius: 30%;">
+									Aller à...
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewbox="0 0 16 16">
+										<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</a>
+							</li>
+
+						</ul>
+						<ul class="pharmacy-list list-unstyled">
+							<li class="pharmacy-item d-flex flex-column align-items-start mb-4">
+								<img src="{{ asset('images/pp.jpg') }}" alt="Pharmacy Icon" style="width: 100px; height: 100px;">
+								<span class="nmPh font-weight-bold">Pharmacie Traleni</span>
+								<p class="description">Votre pharmacie de confiance avec une large gamme de produits.
+																											            Votre pharmacie de confiance avec une large gamme de produits.
+																											            Votre pharmacie de confiance avec une large gamme de produits.
+																											            Votre pharmacie de confiance avec une large gamme de produits.</p>
+								<a class="aller btn btn-outline-primary mt-2" href="{{ path('info_pharmacie') }}" style="border-radius: 30%;">
+									Aller à...
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewbox="0 0 16 16">
+										<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</a>
+							</li>
+
+						</ul>
+						<ul class="pharmacy-list list-unstyled">
+							<li class="pharmacy-item d-flex flex-column align-items-start mb-4">
+								<img src="{{ asset('images/pp.jpg') }}" alt="Pharmacy Icon" style="width: 100px; height: 100px;">
+								<span class="nmPh font-weight-bold">Pharmacie Oasis</span>
+								<p class="description">Votre pharmacie de confiance avec une large gamme de produits.
+																											            Votre pharmacie de confiance avec une large gamme de produits.
+																											            Votre pharmacie de confiance avec une large gamme de produits.
+																											            Votre pharmacie de confiance avec une large gamme de produits.</p>
+								<a class="aller btn btn-outline-primary mt-2" href="{{ path('info_pharmacie') }}" style="border-radius: 30%;">
+									Aller à...
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewbox="0 0 16 16">
+										<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</a>
+							</li>
+
+						</ul>
+
+
+						<div id="pharamacieLi" style="display: none;">
+							<p class="description" style="margin-top: 15%; margin-left: 45%;" id="nn">Aucun resultat trouver !</p>
+						</div>
+					</main>
+				</div>
+			</div>
+			<!-- Bouton de contact -->
+		</main>
+		<footer>
+			<nav class="bottom-nav">
+				<a href="{{ path('app_index') }}" class="nav-item">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-fill" viewbox="0 0 16 16">
+						<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
+						<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"/>
+					</svg>
+					<span>Accueil</span>
+				</a>
+				<a href="#" class="nav-item">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo-alt-fill" viewbox="0 0 16 16">
+						<path fill-rule="evenodd" d="M12 6a4 4 0 1 0-8 0 4 4 0 0 0 8 0ZM8 0a6 6 0 0 0-6 6c0 1.7.924 3.68 2.287 5.329.678.843 1.454 1.593 2.155 2.146.354.28.688.528.958.711.134.091.252.165.345.217l.066.036.017.01h.002l.001.001s0-.001.4.202a.25.25 0 0 0 .234 0s.4-.202.4-.202l.002-.001h.001l.017-.01.066-.036c.093-.052.211-.126.345-.217.27-.183.604-.43.958-.711.701-.553 1.477-1.303 2.155-2.146C13.076 9.68 14 7.7 14 6a6 6 0 0 0-6-6Z"/>
+					</svg>
+					<span>Pharmacie proche</span>
+				</a>
+				<a href="{{ path('pharmacie_garde') }}" class="nav-item">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" ç fill="currentColor" class="bi bi-clock-fill" viewbox="0 0 16 16">
+						<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM7.5 3.5a.5.5 0 0 0-1 0V8a.5.5 0 0 0 .276.447l3.5 1.75a.5.5 0 0 0 .448-.894L7.5 7.742V3.5Z"/>
+					</svg>
+					<span>Pharmacie de garde</span>
+				</a>
+				<a href="{{ path('recherche_medicament') }}" class="nav-item">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewbox="0 0 16 16">
+						<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001a1.007 1.007 0 0 0-.116.125l-2.45 2.45a1 1 0 0 0 1.415 1.415l2.45-2.45a1.007 1.007 0 0 0 .125-.116v-.001a6.5 6.5 0 0 0 1.398-1.397zm-6.321-5.027a5.5 5.5 0 1 1 7.778 7.778 5.5 5.5 0 0 1-7.778-7.778z"/>
+					</svg>
+					<span>Recherche de médicament</span>
+				</a>
+				<a href="#" class="nav-item">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill" viewbox="0 0 16 16">
+						<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+					</svg>
+					<span>Profile</span>
+				</a>
+			</nav>
+		</footer>
+	</div>
+	<script>
+		document.getElementById('searchPharmacie').addEventListener('keyup', function () {
+let filter = this.value.toLowerCase();
+let items = document.querySelectorAll('#pharamacieList ul');
+let noResults = document.getElementById('pharamacieLi');
+
+let anyMatch = false;
+
+items.forEach(item => {
+let text = item.textContent.toLowerCase();
+if (text.includes(filter)) {
+item.style.display = '';
+anyMatch = true;
+} else {
+item.style.display = 'none';
 }
+});
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
+// Afficher ou masquer le message "Aucun résultat trouvé"
+if (anyMatch) {
+noResults.style.display = 'none';
+} else {
+noResults.style.display = 'block';
 }
-
-h1 {
-    color: #0056b3;
-    font-size: 30px;
-}
-
-.notifications img {
-    width: 24px;
-    height: 24px;
-}
-
-.pharmacy-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.pharmacy-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
-    margin-bottom: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-.pharmacy-item img {
-    width: 70px;
-    height: 70px;
-}
-
-.btn-disponible {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-}
-
-.btn-disponible:hover {
-    background-color: #218838;
-}
-
-.nmPh {
-    font-weight: 900;
-   font-size: 23px;
-    flex-grow: 1;
-    top: 18px;
-    font-family: "Blippo", fantasy;
-    color:#0056b3;
-}
-
-.nmMdc {
-    display: block;
-
-    margin-top: 10%;
-    font-size: 17px;
-    color: black;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-
-    padding: 2%;
-    border-radius: 30px;
-}
-
-.bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.bottom-nav a {
-    color: #0056b3;
-    text-decoration: none;
-    font-size: 14px;
-    text-align: center;
-}
-
-.nav-item {
-    text-align: center;
-    flex: 1;
-}
-
-.nav-item svg {
-    display: block;
-    margin: 0 auto 5px;
-    text-align: center;
-}
-
-.nav-item span {
-    display: block;
-    font-size: 12px;
-    color: #333;
-}
-
-#btn-insponible {
-    background: red;
-    font-size: 14px;
-}
-
-main {
-    margin-top: 5%;
-}
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-bar input {
-    padding: 10px;
-    border-radius: 25px;
-    border: 1px solid #0839CF;
-    width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.search-btn {
-    background-color: transparent;
-    border: none;
-    margin-left: -35px;
-}
- @media (max-width: 992px) {
-            header {
-                flex-direction: column;
-            }
-
-            .search-bar input {
-                width: 5000px;
-           
-            }
-            #locfr{
-                margin-left: -100%;
-             
-            }
-             .notifications {
-                margin-top: -10%;
-                position: absolute;
-                margin-left: 55%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .pharmacy-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nmPh, .nmMdc {
-                font-size: 16px;
-            }
-
-            .btn-disponible {
-                width: 100%;
-                text-align: center;
-                margin-top: 10px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .search-bar input {
-                width: 100%;
-            }
-
-            .bottom-nav {
-                flex-direction: column;
-                height: auto;
-            }
-
-            .nav-item {
-                margin-bottom: 10px;
-            }
-
-            .nav-item span {
-                font-size: 10px;
-            }
-
-            .notifications {
-                margin-top: 10px;
-            }
-        }
-        footer{
-    margin-left: -10%;
-   position: absolute;
-}
-.description {
-    margin-left: 10%; /* Ajuste la valeur selon la quantité de décalage que tu souhaites */
-    color: #6c757d; /* Conserve la couleur du texte comme texte-muted */
-    font-size: 14px; /* Ajuste la taille de la police si nécessaire */
-    line-height: 1.5; /* Ajuste l'espacement entre les lignes pour une meilleure lisibilité */
-    margin-top: -1%;
-   
-}
-
-    
-    </style>
-    <div class="container">
-    <header class="row align-items-center">
-        
-        <div class="col-md-4 text-center text-md-start">
-        <img src="{{ asset('images/LocaPharma_color.png') }}" id="locfr" width="206" height="100" alt="Pharmacy Icon">
-    </div>
-    <div class="col-md-4 text-center my-2 my-md-0">
-        <div class="search-bar">
-            <input type="text" placeholder="Rechercher une pharmacie" class="form-control" />
-            <button class="search-btn btn btn-link p-0">
-                <i class="bi bi-search"></i>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-    <div class="col-md-4 text-center text-md-end">
-     <a href="{{ path('app_notification') }}">
-        <div class="notifications">
-            <i class="bi bi-bell"></i>
-       
-            <svg style="color: #0839CF;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
-            </svg>
-      
-        </div>
-          </a>
-    </div>
-    </header>
-    <main class="container mt-4">
-    <ul class="pharmacy-list list-unstyled">
-        <li class="pharmacy-item d-flex flex-column align-items-start mb-4">
-            <img src="{{ asset('images/pharmacy-icon.jpg') }}" alt="Pharmacy Icon" class="mb-2">
-            <span class="nmPh font-weight-bold">Pharmacie Yassine</span>
-            <p class="description">Votre pharmacie de confiance avec une large gamme de produits.
-            Votre pharmacie de confiance avec une large gamme de produits.
-            Votre pharmacie de confiance avec une large gamme de produits.
-            Votre pharmacie de confiance avec une large gamme de produits.</p>
-            <a class="aller btn btn-outline-primary mt-2" href="{{ path('info_pharmacie') }}">
-                Aller à...
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                </svg>
-            </a>
-        </li>
-        <li class="pharmacy-item d-flex flex-column align-items-start mb-4">
-            <img src="{{ asset('images/pharmacy-icon.jpg') }}" alt="Pharmacy Icon" class="mb-2">
-            <span class="nmPh font-weight-bold">Pharmacie Yassine</span>
-            <p class="description">Service rapide et conseils professionnels pour votre santé. Votre pharmacie de confiance avec une large gamme de produits.
-            Votre pharmacie de confiance avec une large gamme de produits.
-            Votre pharmacie de confiance avec une large gamme de produits.
-            Votre pharmacie de confiance avec une large gamme de produits.</p>
-            <a class="aller btn btn-outline-primary mt-2" href="{{ path('info_pharmacie') }}">
-                Aller à...
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 16 16">
-                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                </svg>
-            </a>
-        </li>
-        <li class="pharmacy-item d-flex flex-column align-items-start mb-4">
-            <img src="{{ asset('images/pharmacy-icon.jpg') }}" alt="Pharmacy Icon" class="mb-2">
-            <span class="nmPh font-weight-bold">Pharmacie Yassine</span>
-            <p class="description">Ouverte 24h/24 pour répondre à tous vos besoins médicaux. Votre pharmacie de confiance avec une large gamme de produits.
-            Votre pharmacie de confiance avec une large gamme de produits.
-            Votre pharmacie de confiance avec une large gamme de produits.
-            Votre pharmacie de confiance avec une large gamme de produits.</p>
-            <a class="aller btn btn-outline-primary mt-2" href="{{ path('info_pharmacie') }}">
-                Aller à...
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 16 16">
-                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                </svg>
-            </a>
-        </li>  
-    </ul>
-</main>
-
-<footer>
-    <nav class="bottom-nav"> 
-        <a href="#" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
-                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"/>
-            </svg>
-            <span>Accueil</span>
-        </a>
-        <a href="#" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M12 6a4 4 0 1 0-8 0 4 4 0 0 0 8 0ZM8 0a6 6 0 0 0-6 6c0 1.7.924 3.68 2.287 5.329.678.843 1.454 1.593 2.155 2.146.354.28.688.528.958.711.134.091.252.165.345.217l.066.036.017.01h.002l.001.001s0-.001.4.202a.25.25 0 0 0 .234 0s.4-.202.4-.202l.002-.001h.001l.017-.01.066-.036c.093-.052.211-.126.345-.217.27-.183.604-.43.958-.711.701-.553 1.477-1.303 2.155-2.146C13.076 9.68 14 7.7 14 6a6 6 0 0 0-6-6Z"/>
-            </svg>
-            <span>Pharmacie proche</span>
-        </a>
-        <a href="{{ path('pharmacie_garde') }}" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM7.5 3.5a.5.5 0 0 0-1 0V8a.5.5 0 0 0 .276.447l3.5 1.75a.5.5 0 0 0 .448-.894L7.5 7.742V3.5Z"/>
-            </svg>
-            <span>Pharmacie de garde</span>
-        </a>
-        <a href="{{ path('recherche_medicament') }}" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001a1.007 1.007 0 0 0-.116.125l-2.45 2.45a1 1 0 0 0 1.415 1.415l2.45-2.45a1.007 1.007 0 0 0 .125-.116v-.001a6.5 6.5 0 0 0 1.398-1.397zm-6.321-5.027a5.5 5.5 0 1 1 7.778 7.778 5.5 5.5 0 0 1-7.778-7.778z"/>
-            </svg>
-            <span>Recherche de médicament</span>
-        </a>
-        <a href="{{ path('login') }}" class="nav-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-            </svg>
-            <span>Profile</span>
-        </a>
-    </nav>  
-</footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-</div>
+});
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 {% endblock %}
