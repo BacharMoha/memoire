@@ -60,24 +60,18 @@
 		<form method="post">
 			<div class="mb-3">
 				<label for="pharmacienName" class="form-label">Nom du personnel</label>
-				<input type="text" class="form-control" id="pharmacienName" name="name" value="Nom de la pharmacie" required>
+				<input type="text" class="form-control" id="pharmacienName" name="name" value="{{ordre_pharmacie.username}}" required>
 			</div>
 			<div class="mb-3">
 				<label for="pharmacienEmail" class="form-label">Email</label>
-				<input type="email" class="form-control" id="pharmacienEmail" name="email" value="email@example.com" required>
+				<input type="email" class="form-control" id="pharmacienEmail" name="email" value="{{ordre_pharmacie.email}}" required>
 			</div>
 
 			<div class="mb-3">
 				<label for="pharmacienPhone" class="form-label">Numéro de Téléphone</label>
-				<input type="tel" class="form-control" id="pharmacienPhone" name="phone" value="Numéro de téléphone" required>
+				<input type="tel" class="form-control" id="pharmacienPhone" name="phone" value="{{ordre_pharmacie.tel}}" required>
 			</div>
-			<div class="mb-3">
-				<label for="pharmacienRole" class="form-label">Rôle</label>
-				<select class="form-control" id="pharmacienRole" name="role" required>
-					<option value="pharmacien" selected>Pharmacien</option>
-					<option value="ordre_pharmacie">Ordre des Pharmaciens</option>
-				</select>
-			</div>
+			
 			<div class="mb-3">
 				<label for="pharmacienPassword" class="form-label">Nouveau Mot de Passe</label>
 				<input type="password" class="form-control" id="pharmacienPassword" name="password">

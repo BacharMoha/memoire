@@ -121,15 +121,15 @@
 						<span class="input-icon">
 							<i class="fas fa-envelope"></i>
 						</span>
-						<input type="email" name="email" placeholder="Votre Email" required>
+						<input type="email" value="{{ last_username }}" name="_username" id="inputEmail" required autofocus placeholder="Votre Email" >
 					</div>
 					<div class="input-container">
 						<span class="input-icon">
 							<i class="fas fa-lock" id="togglePassword"></i>
 						</span>
-						<input type="password" name="password" id="password" placeholder="Mot de passe" required>
+						<input type="password" name="_password" id="password" placeholder="Mot de passe" required>
 					</div>
-
+<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 					<button type="submit" class="btn">Connexion</button>
 				</form>
 				<p class="login-link">Vous n'avez pas un compte?

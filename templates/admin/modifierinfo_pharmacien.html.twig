@@ -58,30 +58,26 @@
 	</nav>
 	<div class="container form-container">
 		<h1>Modifier le Compte Pharmacien</h1>
-		<form method="post">
+		<form method="post" >
+				<input type="hidden" class="form-control" id="pharmacienName" name="name" value="{{ pharmacie.id }}" required>
+			
 			<div class="mb-3">
 				<label for="pharmacienName" class="form-label">Nom de la pharmacie</label>
-				<input type="text" class="form-control" id="pharmacienName" name="name" value="Nom de la pharmacie" required>
+				<input type="text" class="form-control" id="pharmacienName" name="name" value="{{ pharmacie.nomPharma }}" required>
 			</div>
 			<div class="mb-3">
 				<label for="pharmacienEmail" class="form-label">Email</label>
-				<input type="email" class="form-control" id="pharmacienEmail" name="email" value="email@example.com" required>
+				<input type="email" class="form-control" id="pharmacienEmail" name="email" value="{{ pharmacie.email }}" required>
 			</div>
 			<div class="mb-3">
 				<label for="pharmacienAddress" class="form-label">Adresse</label>
-				<input type="text" class="form-control" id="pharmacienAddress" name="address" value="Adresse du pharmacien" required>
+				<input type="text" class="form-control" id="pharmacienAddress" name="address" value="{{ pharmacie.addpharma }}" required>
 			</div>
 			<div class="mb-3">
 				<label for="pharmacienPhone" class="form-label">Numéro de Téléphone</label>
-				<input type="tel" class="form-control" id="pharmacienPhone" name="phone" value="Numéro de téléphone" required>
+				<input type="text" class="form-control" id="pharmacienPhone" name="phone" value="{{ pharmacie.tel }}" required>
 			</div>
-			<div class="mb-3">
-				<label for="pharmacienRole" class="form-label">Rôle</label>
-				<select class="form-control" id="pharmacienRole" name="role" required>
-					<option value="pharmacien" selected>Pharmacien</option>
-					<option value="ordre_pharmacie">Ordre des Pharmaciens</option>
-				</select>
-			</div>
+			
 			<div class="mb-3">
 				<label for="pharmacienPassword" class="form-label">Nouveau Mot de Passe</label>
 				<input type="password" class="form-control" id="pharmacienPassword" name="password">

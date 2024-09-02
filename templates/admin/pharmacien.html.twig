@@ -85,14 +85,14 @@
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="border-radius: 20px;">
 							<li>
 								<a class="dropdown-item" href="#">
-									Bachar</a>
+									{{ pharmacie.nomPharma }}</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="#">bachar@example.com</a>
+								<a class="dropdown-item" href="#">{{ pharmacie.email }}</a>
 							</li>
 							<li><hr class="dropdown-divider"></li>
 							<li>
-								<a class="dropdown-item text-danger" href="#">Déconnexion</a>
+								<a class="dropdown-item text-danger" href="{{path('app_logout')}}">Déconnexion</a>
 							</li>
 						</ul>
 					</li>
@@ -102,14 +102,14 @@
 	</nav>
 	<div class="container dashboard-container">
 		<h1 class="mb-4">Tableau de Bord Pharmacien</h1>
-
+	
 		<div class="row">
 			<div class="card dashboard-card" style="border-radius: 30px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.532); background: #f0f0f0;">
 				<div class="card-body">
 					<h5 class="card-title">Total Médicaments</h5>
 					<b>
 						<strong>
-							<h2 class="nombre-medic">__ 254 __</h2>
+							<h2 class="nombre-medic">{{ pharmacie.medicaments|length }}</h2>
 						</strong>
 					</b>
 

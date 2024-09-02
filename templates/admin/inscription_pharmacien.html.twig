@@ -157,15 +157,15 @@
 			</style>
 
 			<div class="container">
-				<img src="{{ asset('images/pharmacy-icon.jpg') }}" alt="Logo" class="logo">
+				<img src="{{ asset('images/pharmacy-icon.jpg') }}" alt="Logo" class="logo" >
 				<h2>Locapharma</h2>
 				<p class="subtitle">Créer un nouveau compte pharmacien</p>
-				<form method="post" action="#">
+				<form method="post" action="{{ path('app_create_pharma') }}" enctype="multipart/form-data">
 					<div class="input-container">
 						<span class="input-icon">
 							<i class="fas fa-user"></i>
 						</span>
-						<input type="text" name="name" placeholder="Nom de la pharmacie" required>
+						<input type="text" name="nomphrma" placeholder="Nom de la pharmacie"  required>
 					</div>
 					<div class="input-container">
 						<span class="input-icon">
@@ -189,13 +189,25 @@
 						<span class="input-icon">
 							<i class="fas fa-map-marker-alt"></i>
 						</span>
-						<input type="text" name="address" placeholder="Adresse" required>
+						<input type="text" name="adresse" placeholder="Adresse" required>
+					</div>
+					<div class="input-container">
+						<span class="input-icon">
+							<i class="fas fa-map-marker-alt"></i>
+						</span>
+						<input type="text" name="addmaps" placeholder="Adresse Maps" required>
 					</div>
 					<div class="input-container">
 						<span class="input-icon">
 							<i class="fas fa-phone"></i>
 						</span>
-						<input type="tel" name="phone" placeholder="Numéro de Téléphone" required>
+						<input type="tel" name="tel" placeholder="Numéro de Téléphone" required>
+					</div>
+					<div class="input-container">
+						<span class="input-icon">
+							<i class="fas fa-envelope"></i>
+						</span>
+						<input type="file" name="image"  >
 					</div>
 					<div class="input-container">
 						<label style="color: rgb(169, 169, 169); font-size: 14px;">Déscription</label>

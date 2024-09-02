@@ -162,7 +162,7 @@
 				<img src="{{ asset('images/pharmacy-icon.jpg') }}" alt="Logo" class="logo">
 				<h2>Locapharma</h2>
 				<p class="subtitle">Créer un nouveau pour l'ordre de pharmacie</p>
-				<form method="post" action="#">
+				<form method="post" action="{{ path('app_create_ordrepharma') }}">
 					<div class="input-container">
 						<span class="input-icon">
 							<i class="fas fa-user"></i>
@@ -179,7 +179,7 @@
 						<span class="input-icon">
 							<i class="fas fa-phone"></i>
 						</span>
-						<input type="tel" name="phone" placeholder="Numéro de Téléphone" required>
+						<input type="number" name="phone" placeholder="Numéro de Téléphone" required>
 					</div>
 					<div class="input-container">
 						<span class="input-icon">

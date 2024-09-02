@@ -52,7 +52,7 @@
 </nav>
 <div class="container form-container">
     <h1>Ajouter un Médicament</h1>
-    <form method="post" enctype="multipart/form-data">
+     <form method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="medicamentName" class="form-label">Nom du Médicament</label>
             <input type="text" class="form-control" id="medicamentName" name="name" required>
@@ -62,11 +62,15 @@
             <input type="file" class="form-control" id="medicamentImage" name="image" required>
         </div>
         <div class="mb-3">
+            <label for="medicamentName" class="form-label">Prix</label>
+            <input type="number" class="form-control" id="medicamentPrix" name="prix" required>
+        </div>
+        <div class="mb-3">
             <label for="medicamentDescription" class="form-label">Description</label>
             <textarea class="form-control" id="medicamentDescription" name="description" rows="4" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary w-100" style="border-radius: 15px; background:  #0839CF;">Ajouter</button>
-        <a href="{{ path('app_pharmacien') }}" class="btn btn-secondary w-100 mt-3" style="border-radius: 20px; ">Retour au Tableau de Bord</a>
+        <a href="{{ path('pharmacie_dashboard') }}" class="btn btn-secondary w-100 mt-3" style="border-radius: 20px; ">Retour au Tableau de Bord</a>
     </form>
 </div>
 

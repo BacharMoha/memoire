@@ -1,5 +1,6 @@
 # config/services.yaml
 parameters:
+    medicaments_directory: '%kernel.project_dir%/public/images'
 
 services:
     _defaults:

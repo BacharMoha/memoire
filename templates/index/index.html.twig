@@ -275,7 +275,7 @@
 							</a>
 						</div>
 						<div class="col-md-4 text-center my-2 my-md-0">
-&							<div class="search-bar">
+						<div class="search-bar">
 								<input type="text" placeholder="Rechercher une pharmacie" id="searchPharmacie" class="form-control"/>
 								<button class="search-btn btn btn-link p-0">
 									<i class="bi bi-search"></i>
@@ -299,15 +299,18 @@
 						</div>
 					</header>
 					<main class="container mt-4" id="pharamacieList">
+					{% for pharmacies in pharmacie %}
+						
 						<ul class="pharmacy-list list-unstyled" id="pharamacieList">
 							<li class="pharmacy-item d-flex flex-column align-items-start mb-4">
+							{% if pharmacies.image %}
+								<img src="{{ asset('images/' ~ pharmacies.image) }}" alt="Pharmacy Icon" style="width: 100px; height: 100px;">
+							{% else %}	
 								<img src="{{ asset('images/pp.jpg') }}" alt="Pharmacy Icon" style="width: 100px; height: 100px;">
-								<span class="nmPh font-weight-bold">Pharmacie Yassine</span>
-								<p class="description">Votre pharmacie de confiance avec une large gamme de produits.
-																											            Votre pharmacie de confiance avec une large gamme de produits.
-																											            Votre pharmacie de confiance avec une large gamme de produits.
-																											            Votre pharmacie de confiance avec une large gamme de produits.</p>
-								<a class="aller btn btn-outline-primary mt-2" href="{{ path('info_pharmacie') }}" style="border-radius: 30%;">
+							{% endif %}
+								<span class="nmPh font-weight-bold">{{ pharmacies.NomPharma }}</span>
+								<p class="description"> {{ pharmacies.description }}	</p>
+								<a class="aller btn btn-outline-primary mt-2" href="{{ path('app_infopharmacie',{'id': pharmacies.id}) }}" style="border-radius: 30%;">
 									Aller à...
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewbox="0 0 16 16">
 										<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
@@ -316,40 +319,8 @@
 							</li>
 
 						</ul>
-						<ul class="pharmacy-list list-unstyled">
-							<li class="pharmacy-item d-flex flex-column align-items-start mb-4">
-								<img src="{{ asset('images/pp.jpg') }}" alt="Pharmacy Icon" style="width: 100px; height: 100px;">
-								<span class="nmPh font-weight-bold">Pharmacie Traleni</span>
-								<p class="description">Votre pharmacie de confiance avec une large gamme de produits.
-																											            Votre pharmacie de confiance avec une large gamme de produits.
-																											            Votre pharmacie de confiance avec une large gamme de produits.
-																											            Votre pharmacie de confiance avec une large gamme de produits.</p>
-								<a class="aller btn btn-outline-primary mt-2" href="{{ path('info_pharmacie') }}" style="border-radius: 30%;">
-									Aller à...
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewbox="0 0 16 16">
-										<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-									</svg>
-								</a>
-							</li>
-
-						</ul>
-						<ul class="pharmacy-list list-unstyled">
-							<li class="pharmacy-item d-flex flex-column align-items-start mb-4">
-								<img src="{{ asset('images/pp.jpg') }}" alt="Pharmacy Icon" style="width: 100px; height: 100px;">
-								<span class="nmPh font-weight-bold">Pharmacie Oasis</span>
-								<p class="description">Votre pharmacie de confiance avec une large gamme de produits.
-																											            Votre pharmacie de confiance avec une large gamme de produits.
-																											            Votre pharmacie de confiance avec une large gamme de produits.
-																											            Votre pharmacie de confiance avec une large gamme de produits.</p>
-								<a class="aller btn btn-outline-primary mt-2" href="{{ path('info_pharmacie') }}" style="border-radius: 30%;">
-									Aller à...
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewbox="0 0 16 16">
-										<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-									</svg>
-								</a>
-							</li>
-
-						</ul>
+						{% endfor %}
+					
 
 
 						<div id="pharamacieLi" style="display: none;">
@@ -387,7 +358,7 @@
 					</svg>
 					<span>Recherche de médicament</span>
 				</a>
-				<a href="#" class="nav-item">
+				<a href="{{ path('app_profile') }}" class="nav-item">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill" viewbox="0 0 16 16">
 						<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 					</svg>

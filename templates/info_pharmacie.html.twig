@@ -305,7 +305,7 @@
 						{# <p class="card-title" style="text-align: center; font-weight: bolder; font-size: 20px; color: #0839CF;">
 																																																                Nous Retrouver
 																																																        </p> #}
-						<!-- Carte Google Maps intégrée --><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.9421491594453!2d43.25095697516832!3d-11.695633335462729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1898fd194fc2047b%3A0xe9b4a405e3862db1!2sPharma%20Yassin!5e1!3m2!1sfr!2s!4v1722704498247!5m2!1sfr!2s" width="103%" height="500" style="border: 0; border-radius: 30px; box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); margin-top: -14px; margin-left: -16px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>
+						<!-- Carte Google Maps intégrée --><iframe src="{{pharmacie.Addmaps}}" width="103%" height="500" style="border: 0; border-radius: 30px; box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); margin-top: -14px; margin-left: -16px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>
 						<!-- Card contenant les informations de la pharmacie -->
 						<div class="card mb-3" style="margin-top: 5%; border-radius: 5%; border: none;">
 							<div
@@ -316,7 +316,7 @@
 								</center>
 								<!-- Nom de la pharmacie -->
 								<p class="card-title" style="text-align: center; font-weight: bolder; font-size: 38px;">
-									Pharmacie Yassine
+									{{pharmacie.NomPharma}}
 								</p>
 								<div style="text-align: center; ">
 									<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pharmacyModal" style="background: none; color: #0839CF; margin-top:-1%;">
@@ -342,11 +342,11 @@
 															<h4 class="font-weight-bold mb-3">Informations de contact</h4>
 															<p class="card-text">
 																<strong>Adresse :</strong>
-																Moroni Ambassadeur<br>
+																{{pharmacie.Addpharma}}<br>
 																<strong>Téléphone :</strong>
-																444444444<br>
+																{{pharmacie.tel}}<br>
 																<strong>Email :</strong>
-																pharmacie@exemple.com<br>
+																{{pharmacie.email}}<br>
 															</p>
 														</div>
 														<!-- Horaires d'ouverture -->
@@ -381,7 +381,7 @@
 									<p class="card-text" style="text-align: center; margin-top: -1%;">
 										“En cas de besoin, vous pouvez facilement contacter la pharmacie de garde en cliquant sur 
 																																																																																						                    l'icône de téléphone ci-dessous.
-										<strong style="font-size: 18px; color: rgb(42, 63, 251) ;">Pharmacie Yassine</strong>
+										<strong style="font-size: 18px; color: rgb(42, 63, 251) ;">{{pharmacie.NomPharma}}</strong>
 										se tient prête à vous assister avec professionnalisme et attention.”
 									</p>
 									<a href="#">

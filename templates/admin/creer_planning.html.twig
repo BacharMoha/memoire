@@ -61,23 +61,24 @@
 	</nav>
 	<div class="container form-container">
 		<h1>Créer un Planning</h1>
-		<form method="post">
+		<form method="post" action="{{ path('app_planning') }}" >
 			<div class="mb-3">
 				<label for="pharmacy" class="form-label">Pharmacie</label>
 				<select class="form-control" id="pharmacy" name="pharmacy" required>
 					<option value="">Sélectionner une pharmacie</option>
 					{# Boucle pour les pharmacies #}
-					<option value="pharmacie1">Pharmacie 1</option>
-					<option value="pharmacie2">Pharmacie 2</option>
+					{% for pharmacies in pharmacie %}
+					<option value="{{ pharmacies.id }}">{{ pharmacies.nomPharma }}</option>
+					{% endfor %}
 				</select>
 			</div>
 			<div class="mb-3">
 				<label for="startDate" class="form-label">Date de Début</label>
-				<input type="date" class="form-control" id="startDate" name="start_date" required>
+				<input type="time" class="form-control" id="startDate" name="start_date" required>
 			</div>
 			<div class="mb-3">
 				<label for="endDate" class="form-label">Date de Fin</label>
-				<input type="date" class="form-control" id="endDate" name="end_date" required>
+				<input type="time" class="form-control" id="endDate" name="end_date" required>
 			</div>
 			<button type="submit" class="btn btn-primary w-100" style="border-radius: 15px; background:  #0839CF;">Créer Planning</button>
 

@@ -103,18 +103,20 @@
 			</thead>
 			<tbody
 				id="personnelTable">
-				{# {% for personnel in personnels %} #}
+				 {% for ordrepharmas in ordrepharma %} 
 				<tr>
 					<td>#</td>
-					<td>Bachar Mohamed</td>
-					<td>4621263</td>
-					<td>email@pharmacie.com</td>
+					<td>{{ordrepharmas.username}}</td>
+					<td>{{ordrepharmas.tel}}</td>
+					<td>{{ordrepharmas.email}}</td>
 					<td>
-						<a href="{{ path('app_modifierordre') }}" class="btn btn-edit" style="border-radius: 20px;">Modifier</a>
-						<a href="#" class="btn btn-delete" style="border-radius: 20px;">Supprimer</a>
-					</td>
+						<a href="{{ path('app_modifierordre', { 'id': ordrepharmas.id }) }}" class="btn btn-edit" style="border-radius: 20px;float:left;">Modifier</a>
+<form action="{{ path('ordrepharma_delete', { 'id': ordrepharmas.id }) }}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette pharmacie ?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ordrepharmas.id) }}">
+                <button type="submit" class="btn btn-danger" style="border-radius: 20px; float:left">Supprimer</button>
+            </form>						</td>
 				</tr>
-				{# {% endfor %} #}
+				 {% endfor %} 
 			</tbody>
 		</table>
 

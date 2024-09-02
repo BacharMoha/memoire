@@ -307,22 +307,28 @@
 							<div class="card-body" style="margin-top: -5%; border-radius: 5%; padding: 7%;">
 								<center><img src="{{ asset('images/pharmacy-icon.jpg') }}" alt="Medicament Icon" style="   height: 100px;"></center>
 								<p class="card-title" style="text-align: center; font-weight: bolder; font-size:38px; color: #0839CF;">Pharmacie de Garde</p>
+								{% if message %}
+<center>
+								<p  style ="font-weight:bold;color:red;font-size:20px;">
+									{{ message }}
+								</p></center>
+								{% else %}
 								<p class="card-text" style="text-align: center; ">“La pharmacie de garde cette semaine est
-									<strong style="font-size: 18px; color:rgb(42, 63, 251);">Pharmacie Yassine</strong>. 
+									<strong style="font-size: 18px; color:rgb(42, 63, 251);">{{ pharmacie.nomPharma }}</strong>. 
 										    Située en plein cœur de la ville, 
 										    cette pharmacie est ouverte pour répondre à vos besoins urgents en médicaments et en soins. 
 										    Elle sera à votre service du
-									<strong style="font-size: 18px; color:rgb(42, 63, 251);">7/09/2024 au 13/09/2024</strong>, assurant une disponibilité continue pour vous 
+									<strong style="font-size: 18px; color:rgb(42, 63, 251);">{{ planning.dateDebut ? planning.dateDebut|date('H:i') : 'Non spécifié' }} au {{ planning.dateFin ? planning.dateFin|date('H:i') : 'Non spécifié' }}</strong>, assurant une disponibilité continue pour vous 
 										    et vos proches.”
 
 								</p>
 								<p class="card-text" style="text-align: center;  margin-top: 5%; ">
 									“En cas de besoin, vous pouvez facilement contacter la pharmacie de garde en cliquant sur 
 									  l'icône de téléphone ci-dessous.
-									<strong style="font-size: 18px; color:rgb(42, 63, 251);">Pharmacie Yassine</strong>
+									<strong style="font-size: 18px; color:rgb(42, 63, 251);">{{ pharmacie.nomPharma }}</strong>
 									se tient prête à vous assister avec professionnalisme et attention.”
 								</p>
-
+						
 							</div>
 
 						</div>
@@ -333,6 +339,7 @@
 								</svg><br>
 								<span>Contactez la Pharmacie</span>
 							</div>
+{% endif %}
 							<main>
 						</div>
 					</div>
